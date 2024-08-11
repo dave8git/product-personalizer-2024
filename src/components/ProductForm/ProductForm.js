@@ -2,6 +2,8 @@ import { useState } from 'react';
 import styles from './ProductForm.module.scss';
 import Button from '../Button/Button';
 import clsx from 'clsx';
+import OptionColor from '../OptionColor/OptionColor';
+import OptionSize from '../OptionSize/OptionSize';
 
 const ProductForm = props => {
     const prepareColorClassName = color => {
@@ -18,36 +20,8 @@ const ProductForm = props => {
 
     return (
         <form>
-            <div className={styles.sizes}>
-                <h3 className={styles.optionLabel}>Sizes</h3>
-                <ul className={styles.choices}>
-                    {props.sizes.map(size => (
-                        <li key={size.name}>
-                            <button
-                                type="button"
-                                onClick={() => props.changeSize(size.name)}
-                                className={size.name === props.currentSize ? styles.active : ''}
-                            >
-                                {size.name}
-                            </button>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-            <div className={styles.colors}>
-                <h3 className={styles.optionLabel}>Colors</h3>
-                <ul className={styles.choices}>
-                    {props.colors.map(color => (
-                        <li key={color}>
-                            <button
-                                type="button"
-                                onClick={() => props.changeColor(color)}
-                                className={clsx(styles[prepareColorClassName(color)], color === props.currentColor ? styles.active : '')}
-                            />
-                        </li>
-                    ))}
-                </ul>
-            </div>
+            <OptionSize sizes={props.sizes} changeSize={props.changeSize} currentSize={props.currentSize} />
+            <OptionColor prepareColorClassName={prepareColorClassName} colors={props.colors} changeColor={props.changeColor} currentColor={props.currentColor} />
             <Button className={styles.button} onClick={sendSummary}>
                 <span className="fa fa-shopping-cart" />
             </Button>
