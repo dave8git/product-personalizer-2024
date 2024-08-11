@@ -3,10 +3,10 @@ const productsData = [
     id: 1,
     name: 'react',
     title: 'React shirt',
-    basePrice: 20,
+    basePrice: 21,
     colors: ['blue', 'red', 'green'],
     sizes: [
-      { name: 'S', additionalPrice: 0 },
+      { name: 'S', additionalPrice: 0,  },
       { name: 'M', additionalPrice: 5 },
       { name: 'L', additionalPrice: 6 },
       { name: 'XL', additionalPrice: 8 }

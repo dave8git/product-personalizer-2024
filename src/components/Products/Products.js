@@ -7,7 +7,8 @@ const Products = () => {
 
   return (
     <section>
-      <Product
+      {products.map(product => <Product {...product} />)}
+      {/* <Product
         id={products[0].id}
         name={products[0].name}
         title={products[0].title}
@@ -20,7 +21,7 @@ const Products = () => {
         title={products[1].title}
         colors={products[1].colors}
         sizes={products[1].sizes}
-        basePrice={products[1].basePrice} />
+        basePrice={products[1].basePrice} /> */}
     </section>
   );
 };
